@@ -15,10 +15,10 @@ script:
   - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
   - make -j$(nproc)
   - mkdir -p ./appdir/usr/bin
+  # make DESTDIR=appdir -j$(nproc) install ; find appdir/ # Needs to be made work instead of the following lines
   - cp ESP_Flashing_Utility ./appdir/usr/bin # FIXME
   - mkdir -p ./appdir/usr/share/applications ; cp cuteesp.desktop ./appdir/usr/share/applications # FIXME
   - mkdir -p ./appdir/usr/share/icons/hicolor/scalable/apps ; touch ./appdir/usr/share/icons/hicolor/scalable/apps/cuteesp.svg # FIXME
-  - make DESTDIR=appdir -j$(nproc) install ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
