@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=ESP Flashing Utility
+Name=CuteESP
 Comment=ESP8622/ESP32 flashing tool
 Exec=ESP_Flashing_Utility
 Icon=cuteesp
