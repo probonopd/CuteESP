@@ -26,8 +26,8 @@ script:
   - cp -Rf esptool/esptool.AppDir/* appdir/
   - ( cd appdir ; wget -c "https://github.com/AppImage/AppImageKit/releases/download/11/AppRun-x86_64" -O AppRun ; chmod +x AppRun )
   # Remove files that are not absolutely needed
-  - ( cd appdir/ ; find . -type f > ../ALLFILES ; diff --new-line-format="" --unchanged-line-format="" ../ALLFILES ../MANIFEST | xargs -r rm )
-  - find appdir/ -type d -empty -delete
+  - ( cd appdir/ ; find . -type f > ../ALLFILES ; diff --new-line-format="" --unchanged-line-format="" ../MANIFEST ../ALLFILES | xargs -r rm )
+  - find appdir/ -type d -empty -delete ; find appdir/
   # Make AppImage
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
