@@ -19,6 +19,13 @@ script:
   - cp ESP_Flashing_Utility ./appdir/usr/bin # FIXME
   - mkdir -p ./appdir/usr/share/applications ; cp cuteesp.desktop ./appdir/usr/share/applications # FIXME
   - mkdir -p ./appdir/usr/share/icons/hicolor/scalable/apps ; touch ./appdir/usr/share/icons/hicolor/scalable/apps/cuteesp.svg # FIXME
+  # Bundle esptool
+  - wget -c "https://raw.githubusercontent.com/AppImage/pkg2appimage/master/pkg2appimage"
+  - bash -ex pkg2appimage esptool
+  - rm appdir/AppRun
+  - rm -rf esptool/esptool.AppDir/*.desktop esptool/esptool.AppDir/*.svg esptool/esptool.AppDir/usr/share/icons esptool/esptool.AppDir/usr/share/applications
+  - cp -Rf esptool/esptool.AppDir/* appdir/
+  # Make AppImage
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
