@@ -22,7 +22,6 @@ script:
   # Bundle esptool
   - wget -c "https://raw.githubusercontent.com/AppImage/pkg2appimage/master/pkg2appimage"
   - bash -ex pkg2appimage esptool
-  - rm appdir/AppRun
   - rm -rf esptool/esptool.AppDir/*.desktop esptool/esptool.AppDir/*.svg esptool/esptool.AppDir/usr/share/icons esptool/esptool.AppDir/usr/share/applications
   - cp -Rf esptool/esptool.AppDir/* appdir/
   - ( cd appdir ; wget -c "https://github.com/AppImage/AppImageKit/releases/download/11/AppRun-x86_64" -O AppRun ; chmod +x AppRun )
