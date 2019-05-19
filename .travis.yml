@@ -25,7 +25,7 @@ script:
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh ESP_Flashing_Utility*.AppImage*
+  - bash upload.sh Cute*.AppImage*
   
 branches:
   except:
