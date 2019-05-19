@@ -25,6 +25,7 @@ script:
   - rm appdir/AppRun
   - rm -rf esptool/esptool.AppDir/*.desktop esptool/esptool.AppDir/*.svg esptool/esptool.AppDir/usr/share/icons esptool/esptool.AppDir/usr/share/applications
   - cp -Rf esptool/esptool.AppDir/* appdir/
+  - ( cd appdir ; wget -c "https://github.com/AppImage/AppImageKit/releases/download/11/AppRun-x86_64" -O AppRun ; chmod +x AppRun )
   # Make AppImage
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
